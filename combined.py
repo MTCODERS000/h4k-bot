@@ -302,5 +302,6 @@ def redirect_to_external():
         print(f"Unexpected error during redirection: {e}")
         return jsonify({"error": "Failed to redirect"}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Use the port from the environment or default to 5000
+    app.run(host='0.0.0.0', port=port)
